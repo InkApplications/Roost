@@ -1,1 +1,3 @@
 rootProject.name='roost'
+
+include ":core"
