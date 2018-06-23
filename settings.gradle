@@ -1,3 +1,4 @@
 rootProject.name='roost'
 
 include ":core"
+include ":coroutines"
