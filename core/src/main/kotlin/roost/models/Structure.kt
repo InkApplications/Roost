@@ -2,6 +2,7 @@ package roost.models
 
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import org.threeten.bp.Instant
 import org.threeten.bp.ZoneId
 import com.squareup.moshi.ToJson
@@ -13,6 +14,7 @@ data class Structure(
     val cameras: Set<String>?,
     val devices: Set<Device>?,
     val away: AwayState?,
+    val name: String?,
     val countryCode: String?,
     val postalCode: String?,
     val timeZone: ZoneId?,
@@ -26,6 +28,7 @@ data class Structure(
     val wheres: Set<Where>?
 )
 
+@JsonClass(generateAdapter = true)
 internal data class StructureJson(
     @Json(name = "structure_id") val id: String,
     val thermostats: Set<String>?,
@@ -33,6 +36,7 @@ internal data class StructureJson(
     val cameras: Set<String>?,
     val devices: Set<Device>?,
     val away: AwayState?,
+    val name: String?,
     @Json(name = "country_code") val countryCode: String?,
     @Json(name = "postal_code") val postalCode: String?,
     @Json(name = "peak_period_start_time") val peakPeriodStart: Instant?,
@@ -55,6 +59,7 @@ internal object StructureDeserializer {
         cameras = jsonModel.cameras,
         devices = jsonModel.devices,
         away = jsonModel.away,
+        name = jsonModel.name,
         countryCode = jsonModel.countryCode,
         postalCode = jsonModel.postalCode,
         timeZone = jsonModel.timeZone,
@@ -77,6 +82,7 @@ internal object StructureDeserializer {
         cameras = structure.cameras,
         devices = structure.devices,
         away = structure.away,
+        name = structure.name,
         countryCode = structure.countryCode,
         postalCode = structure.postalCode,
         timeZone = structure.timeZone,

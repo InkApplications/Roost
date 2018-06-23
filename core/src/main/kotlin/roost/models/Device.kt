@@ -1,8 +1,10 @@
 package roost.models
 
 import com.squareup.moshi.FromJson
+import com.squareup.moshi.JsonClass
 import com.squareup.moshi.ToJson
 
+@JsonClass(generateAdapter = true)
 data class Device(
     val company: String,
     val type: String,

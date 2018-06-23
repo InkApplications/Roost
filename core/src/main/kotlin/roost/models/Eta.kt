@@ -2,12 +2,13 @@ package roost.models
 
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import com.squareup.moshi.ToJson
 import org.threeten.bp.Instant
 
-
 data class Eta(val id: String, val estimatedArrival: ClosedRange<Instant>)
 
+@JsonClass(generateAdapter = true)
 internal data class EtaJson(
     @Json(name = "trip_id") val id: String,
     @Json(name = "estimated_arrival_window_begin") val windowStart: Instant,
