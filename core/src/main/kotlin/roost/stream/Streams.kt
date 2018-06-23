@@ -1,5 +1,6 @@
 package roost.stream
 
+import okhttp3.sse.EventSource
 import roost.models.Structure
 
 /**
@@ -9,5 +10,5 @@ interface Streams {
     /**
      * Listen to events on a specific Nest Structure.
      */
-    fun structure(token: String, structure: String, event: (Structure) -> Unit)
+    fun structure(token: String, structure: String, event: (Structure) -> Unit): EventSource
 }
