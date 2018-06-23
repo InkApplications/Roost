@@ -2,10 +2,7 @@ package roost
 
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
-import roost.models.DeviceAdapter
-import roost.models.EtaAdapter
-import roost.models.KeyedSetAdapterFactory
-import roost.models.StructureDeserializer
+import roost.models.*
 import roost.stream.NEST_API_MATCHER
 import roost.stream.RestStreams
 import roost.stream.RedirectInterceptor
@@ -22,8 +19,9 @@ class Roost(
         .build()
 ) {
         private val moshi = Moshi.Builder()
-            .add(DeviceAdapter)
+            .add(DeviceIdentifierAdapter)
             .add(EtaAdapter)
+            .add(Camera.EventAdapter)
             .add(KeyedSetAdapterFactory)
             .add(StructureDeserializer)
             .add(ZoneIdAdapter)

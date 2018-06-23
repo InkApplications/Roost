@@ -1,0 +1,58 @@
+package roost.models
+
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+import org.threeten.bp.Instant
+
+@JsonClass(generateAdapter = true)
+data class Thermostat(
+    @Json(name="device_id") override val id: String,
+    val locale: String?,
+    @Json(name = "software_version") val softwareVersion: String,
+    @Json(name = "structure_id") val structureId: String,
+    val name: String,
+    @Json(name = "name_long") val longName: String,
+    @Json(name = "last_connection") val lastConnection: Instant?,
+    @Json(name = "is_online") val isOnline: Boolean,
+    @Json(name = "can_cool") val canCool: Boolean,
+    @Json(name = "can_heat") val canHeat: Boolean,
+    @Json(name = "is_using_emergency_heat") val isUsingEmergencyHeat: Boolean,
+    @Json(name = "has_fan") val hasFan: Boolean,
+    @Json(name = "fan_timer_active") val fanTimerActive: Boolean,
+    @Json(name = "fan_timer_timeout") val fanTimerTimeout: Instant?,
+    @Json(name = "has_leaf") val hasLeaf: Boolean,
+    @Json(name = "temperature_scale") val temperatureScale: TemperatureScale,
+    @Json(name = "target_temperature_f") val targetTemperatureFahrenheit: Int?,
+    @Json(name = "target_temperature_c") val targetTemperatureCelsius: Float?,
+    @Json(name = "target_temperature_high_f") val targetTemperatureHighFahrenheit: Int?,
+    @Json(name = "target_temperature_high_c") val targetTemperatureHighCelsius: Float?,
+    @Json(name = "target_temperature_low_f") val targetTemperatureLowFahrenheit: Int?,
+    @Json(name = "target_temperature_low_c") val targetTemperatureLowCelsius: Float?,
+    @Json(name = "eco_temperature_high_f") val ecoTemperatureHighFahrenheit: Int?,
+    @Json(name = "eco_temperature_high_c") val ecoTemperatureHighCelsius: Float?,
+    @Json(name = "eco_temperature_low_f") val ecoTemperatureLowFahrenheit: Int?,
+    @Json(name = "eco_temperature_low_c") val ecoTemperatureLowCelsius: Float?,
+    @Json(name = "away_temperature_high_f") val awayTemperatureHighFahrenheit: Int?,
+    @Json(name = "away_temperature_high_c") val awayTemperatureHighCelsius: Float?,
+    @Json(name = "away_temperature_low_f") val awayTemperatureLowFahrenheit: Int?,
+    @Json(name = "away_temperature_low_c") val awayTemperatureLowCelsius: Float?,
+    @Json(name = "hvac_mode") val hvacMode: HvacMode?,
+    @Json(name = "previous_hvac_mode") val previousHvacMode: HvacMode?,
+    @Json(name = "ambient_temperature_f") val ambientTemperatureFahrenheit: Int,
+    @Json(name = "ambient_temperature_c") val ambientTemperatureCelsius: Float,
+    val humidity: Int,
+    @Json(name = "hvac_state") val hvacState: HvacState,
+    @Json(name = "where_id") val whereId: String,
+    @Json(name = "is_locked") val isLocked: Boolean,
+    @Json(name = "locked_temp_min_f") val lockedTemperatureMinFahrenheit: Int?,
+    @Json(name = "locked_temp_min_c") val lockedTemperatureMinCelsius: Float?,
+    @Json(name = "locked_temp_max_f") val lockedTemperatureMaxFahrenheit: Int?,
+    @Json(name = "locked_temp_max_c") val lockedTemperatureMaxCelsius: Float?,
+    val label: String,
+    @Json(name = "where_name") val whereName: String,
+    @Json(name = "sunlight_correction_enabled") val sunlightCorrectionEnabled: Boolean,
+    @Json(name = "sunlight_correction_active") val sunlightCorrectionActive: Boolean,
+    @Json(name = "fan_timer_duration") val fanTimerDuration: Int,
+    @Json(name = "time_to_target") val timeToTarget: String,
+    @Json(name = "time_to_target_training") val timeToTargetTraining: TrainingState
+): Identifiable
