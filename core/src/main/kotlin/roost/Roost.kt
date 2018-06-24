@@ -21,7 +21,6 @@ class Roost(
         private val moshi = Moshi.Builder()
             .add(DeviceIdentifierAdapter)
             .add(EtaAdapter)
-            .add(Camera.EventAdapter)
             .add(KeyedSetAdapterFactory)
             .add(StructureDeserializer)
             .add(ZoneIdAdapter)
